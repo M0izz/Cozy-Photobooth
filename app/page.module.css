@@ -1,0 +1,494 @@
+.main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Navbar ── */
+.navbar {
+    width: 100%;
+    height: 62px;
+    background: #fdfdfd;
+    border-bottom: 2px dashed var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navLogo {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+}
+
+.navLinks {
+    display: flex;
+    gap: 28px;
+}
+
+.navItem {
+    font-family: var(--font-hand);
+    font-size: 1.05rem;
+    color: var(--ink-light);
+    transition: var(--ease);
+    text-underline-offset: 4px;
+}
+
+.navItem:hover {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--yellow);
+}
+
+.navCta {
+    font-size: 0.88rem !important;
+    padding: 10px 22px !important;
+}
+
+/* ── Hero ── */
+.hero {
+    text-align: center;
+    padding: 80px 24px 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.heroBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 18px;
+    border: 1.5px dashed var(--ink);
+    border-radius: 50px;
+    font-family: var(--font-hand);
+    font-size: 0.92rem;
+    color: var(--ink-light);
+    margin-bottom: 28px;
+    background: white;
+}
+
+.recDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--red);
+    display: inline-block;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.heroTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 22px;
+    font-weight: 700;
+}
+
+.heroTitleAccent {
+    color: var(--red);
+    display: inline-block;
+}
+
+.heroSub {
+    font-family: var(--font-hand);
+    font-size: 1.15rem;
+    color: var(--ink-light);
+    line-height: 1.7;
+    margin-bottom: 38px;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.heroCtas {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Floating polaroids */
+.polaroidCloud {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 60px;
+    flex-wrap: wrap;
+}
+
+.polaroidFloat {
+    animation: floatSketch 5s ease-in-out infinite;
+    animation-delay: var(--delay);
+    transform: rotate(var(--rot));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: default;
+}
+
+.polaroidFloat:hover {
+    animation-play-state: paused;
+    transform: rotate(0deg) scale(1.05) !important;
+}
+
+.polaroidInner {
+    width: 120px;
+    height: 100px;
+    border: 2px solid var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+.polaroidEmoji {
+    font-size: 2.5rem;
+}
+
+.polaroidLabel {
+    font-family: var(--font-caption);
+    font-size: 0.85rem;
+    color: var(--ink-light);
+}
+
+/* ── Steps ── */
+.steps {
+    padding: 70px 0;
+    border-top: 2px dashed #ddd;
+    border-bottom: 2px dashed #ddd;
+    background: white;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    margin-bottom: 44px;
+    color: var(--ink);
+}
+
+.stepsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.stepCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 28px 18px;
+    border: 2px dashed #ddd;
+    border-radius: var(--r-md);
+    background: var(--bg);
+    gap: 10px;
+    transition: var(--ease-bounce);
+    position: relative;
+}
+
+.stepCard:hover {
+    border-color: var(--ink);
+    transform: translateY(-4px);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.10);
+}
+
+.stepNum {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--red);
+    line-height: 1;
+}
+
+.stepIcon {
+    font-size: 1.8rem;
+}
+
+.stepTitle {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.stepDesc {
+    font-family: var(--font-hand);
+    font-size: 0.92rem;
+    color: var(--ink-light);
+    line-height: 1.5;
+}
+
+/* ── Mode cards ── */
+.modes {
+    padding: 70px 0;
+}
+
+.modeGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.modeCard {
+    border: 2px solid var(--ink);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: white;
+    box-shadow: var(--shadow-hard);
+    transition: var(--ease-bounce);
+}
+
+.modeCard:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0 rgba(0, 0, 0, 0.12);
+}
+
+.modeCardTop {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: 2px dashed var(--ink);
+}
+
+.modeBigIcon {
+    font-size: 4.5rem;
+}
+
+.modeStamp {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border: 2px solid var(--ink);
+    border-radius: 4px;
+    color: var(--ink);
+    letter-spacing: 2px;
+    background: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    animation: stampIn 0.5s forwards;
+}
+
+.modeStampGreen {
+    color: #3a7e34;
+    border-color: #3a7e34;
+}
+
+.modeCardBody {
+    padding: 24px 28px 28px;
+}
+
+.modeTitle {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--ink);
+    margin-bottom: 10px;
+}
+
+.modeDesc {
+    font-family: var(--font-hand);
+    font-size: 1rem;
+    color: var(--ink-light);
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.modeFeatures {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.modeFeatures li {
+    font-family: var(--font-hand);
+    font-size: 0.95rem;
+    color: var(--ink);
+    padding-left: 4px;
+}
+
+/* ── Features ── */
+.featureStrip {
+    padding: 70px 0;
+    background: white;
+    border-top: 2px dashed #ddd;
+    border-bottom: 2px dashed #ddd;
+}
+
+.featureGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.featureCard {
+    padding: 24px;
+    border: 2px dashed #ddd;
+    border-radius: var(--r-md);
+    background: var(--bg);
+    transition: var(--ease-bounce);
+}
+
+.featureCard:hover {
+    border-color: var(--ink);
+    transform: translateY(-3px);
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.08);
+}
+
+.featureIcon {
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.featureTitle {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+}
+
+.featureDesc {
+    font-family: var(--font-hand);
+    font-size: 0.9rem;
+    color: var(--ink-light);
+    line-height: 1.5;
+}
+
+/* ── CTA ── */
+.cta {
+    padding: 90px 24px;
+    text-align: center;
+}
+
+.ctaInner {
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.ctaTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    margin-bottom: 14px;
+    color: var(--ink);
+}
+
+.ctaSub {
+    font-family: var(--font-hand);
+    font-size: 1.05rem;
+    color: var(--ink-light);
+    margin-bottom: 32px;
+}
+
+.ctaBtns {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ── Footer ── */
+.footer {
+    border-top: 2px dashed var(--ink);
+    padding: 28px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fdfdfd;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.footerLogo {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.footerLinks {
+    display: flex;
+    gap: 22px;
+}
+
+.footerLinks a {
+    font-family: var(--font-hand);
+    font-size: 0.95rem;
+    color: var(--ink-light);
+    border-bottom: 1px dotted var(--ink);
+}
+
+.footerLinks a:hover {
+    border-bottom-style: solid;
+    color: var(--ink);
+}
+
+.footerCopy {
+    font-family: var(--font-hand);
+    font-size: 0.85rem;
+    color: #aaa;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .stepsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .featureGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .modeGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .stepsGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .navLinks {
+        display: none;
+    }
+
+    .polaroidCloud {
+        gap: 12px;
+    }
+
+    .polaroidInner {
+        width: 90px;
+        height: 75px;
+    }
+
+    .polaroidEmoji {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stepsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .featureGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 50px 16px 40px;
+    }
+}

@@ -1,0 +1,354 @@
+.page {
+    min-height: 100vh;
+    background: #0d0b09;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Nav */
+.topNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 56px;
+    border-bottom: 2px dashed rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.backBtn {
+    font-family: var(--font-hand);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.95rem;
+}
+
+.backBtn:hover {
+    color: white;
+}
+
+.navTitle {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.roomCode {
+    font-family: var(--font-caption);
+    font-size: 0.8rem;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1.5px dashed rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    padding: 3px 12px;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: var(--ease);
+}
+
+.roomCode:hover {
+    background: rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Booth layout */
+.boothLayout {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Status bar */
+.statusBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 12px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.statusDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #888;
+    transition: background 0.4s;
+}
+
+.statusDotGreen {
+    background: #4CAF50;
+    box-shadow: 0 0 6px rgba(76, 175, 80, 0.6);
+}
+
+.statusDotRed {
+    background: var(--red);
+    box-shadow: 0 0 6px rgba(255, 82, 82, 0.5);
+    animation: pulse 1.2s ease-in-out infinite;
+}
+
+.statusDotYellow {
+    background: #FFD600;
+}
+
+.statusText {
+    font-family: var(--font-hand);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+/* Split cameras */
+.splitScreens {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    position: relative;
+}
+
+.camPanel {
+    position: relative;
+    background: #1a1510;
+    overflow: hidden;
+    height: 320px;
+}
+
+.camPanel:first-child {
+    border-right: 2px dashed rgba(255, 255, 255, 0.15);
+}
+
+.camCanvas,
+.partnerImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.camLabel {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-family: var(--font-caption);
+    font-size: 0.8rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 2px 10px;
+}
+
+.camPlaceholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: var(--font-hand);
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 20px;
+}
+
+.camPlaceholder span {
+    font-size: 2.5rem;
+}
+
+/* Countdown overlay */
+.countOverlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 20;
+    pointer-events: none;
+}
+
+.countNum {
+    font-family: var(--font-display);
+    font-size: 9rem;
+    color: white;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+    animation: countPop 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: #0d0b09;
+    border-top: 2px dashed rgba(255, 255, 255, 0.10);
+}
+
+.startBtn {
+    padding: 14px 40px;
+    background: var(--red);
+    color: white;
+    border-radius: var(--r-pill);
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    border: 2px solid var(--red);
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+    transition: var(--ease-bounce);
+    cursor: pointer;
+}
+
+.startBtn:hover:not(:disabled) {
+    background: #e03030;
+    transform: translate(-1px, -2px);
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.35);
+}
+
+.startBtn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+/* Bottom panel */
+.bottomPanel {
+    background: var(--bg);
+    border-top: 2px dashed var(--ink);
+    padding: 20px;
+}
+
+/* Customization */
+.customRow {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.customGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 160px;
+}
+
+.customLabel {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--ink);
+}
+
+.customInput {
+    padding: 9px 12px;
+    border: 2px dashed var(--ink);
+    border-radius: var(--r-sm);
+    background: white;
+    font-family: var(--font-hand);
+    font-size: 0.95rem;
+    color: var(--ink);
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.06);
+    outline: none;
+    transition: var(--ease);
+}
+
+.customInput:focus {
+    border-style: solid;
+    border-color: var(--red);
+}
+
+/* Layout grid */
+.layoutSel {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.layoutBtn {
+    padding: 6px 12px;
+    border: 2px dashed #ccc;
+    border-radius: var(--r-sm);
+    font-family: var(--font-hand);
+    font-size: 0.8rem;
+    color: var(--ink-light);
+    background: white;
+    transition: var(--ease-bounce);
+    cursor: pointer;
+}
+
+.layoutBtn:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+}
+
+.layoutBtnActive {
+    border-color: var(--ink) !important;
+    border-style: solid !important;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.10);
+    color: var(--ink) !important;
+    font-weight: bold;
+}
+
+/* Result */
+.resultSection {
+    background: var(--bg);
+    padding: 20px;
+    border-top: 2px dashed var(--ink);
+}
+
+.resultTitle {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--ink);
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.resultCanvas {
+    width: 100%;
+    max-width: 560px;
+    display: block;
+    margin: 0 auto;
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.10);
+}
+
+.resultBtns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+
+.loadingSpinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid rgba(255, 255, 255, 0.12);
+    border-top-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@media (max-width: 700px) {
+    .splitScreens {
+        grid-template-columns: 1fr;
+    }
+
+    .camPanel {
+        height: 240px;
+    }
+
+    .controls {
+        gap: 10px;
+        padding: 12px;
+    }
+}
