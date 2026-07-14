@@ -63,4 +63,4 @@ This project was developed as a deep-dive into:
 ## 📬 Contact
 
 Developed by **M0izz**.  
-Feel free to connect or contribute if you're inspired by the project!
+For someone special ;)
